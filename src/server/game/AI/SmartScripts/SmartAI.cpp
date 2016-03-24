@@ -790,6 +790,7 @@ void SmartAI::SetCombatMove(bool on)
         else
         {
             me->StopMoving();
+			me->GetMotionMaster()->Clear(true);
             me->GetMotionMaster()->MoveIdle();
         }
     }
