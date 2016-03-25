@@ -5,7 +5,7 @@ DELETE FROM `creature_text` WHERE `entry` = 1931;
 DELETE FROM `creature_template_addon` WHERE `entry` = 1931;
 DELETE FROM `creature_equip_template` WHERE `entry` = 1931;
 DELETE FROM `waypoints` WHERE `entry` = 1931;
-
+DELETE FROM `creature_equip_template` WHERE `entry` = 1860;
 -- Update template of Captured Scarlet Zealot --
 UPDATE `creature_template` SET `minlevel` = '8', `maxlevel` = '8', `faction_A` = '68', `faction_H` = '68', `speed_walk` = '0.5', `unit_flags` = '256', `dynamicflags` = '2048', `AIName` = 'SmartAI', `equipment_id` = '1931', `flags_extra` = '2', `WDBVerified` = '12340' WHERE `entry` = 1931;
 
