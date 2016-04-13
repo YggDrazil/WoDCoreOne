@@ -29,7 +29,17 @@ enum LootModes
     LOOT_MODE_HARD_MODE_1              = 0x2,
     LOOT_MODE_HARD_MODE_2              = 0x4,
     LOOT_MODE_HARD_MODE_3              = 0x8,
-    LOOT_MODE_HARD_MODE_4              = 0x10
+    LOOT_MODE_HARD_MODE_4              = 0x10,
+	LOOT_MODE_JUNK_FISH                = 0x8000
+};
+
+enum Expansions
+{
+	EXPANSION_CLASSIC = 0,
+	EXPANSION_THE_BURNING_CRUSADE = 1,
+	EXPANSION_WRATH_OF_THE_LICH_KING = 2,
+	EXPANSION_CATACLYSM = 3,
+	MAX_EXPANSIONS = 4
 };
 
 enum Gender
@@ -293,7 +303,7 @@ enum SpellAttr0
     SPELL_ATTR0_CASTABLE_WHILE_SITTING           = 0x08000000, // 27 castable while sitting
     SPELL_ATTR0_CANT_USED_IN_COMBAT              = 0x10000000, // 28 Cannot be used in combat
     SPELL_ATTR0_UNAFFECTED_BY_INVULNERABILITY    = 0x20000000, // 29 unaffected by invulnerability (hmm possible not...)
-    SPELL_ATTR0_BREAKABLE_BY_DAMAGE              = 0x40000000, // 30
+	SPELL_ATTR0_BREAKABLE_BY_DAMAGE              = 0x40000000, // 30
     SPELL_ATTR0_CANT_CANCEL                      = 0x80000000  // 31 positive aura can't be canceled
 };
 
@@ -384,7 +394,7 @@ enum SpellAttr3
     SPELL_ATTR3_MAIN_HAND                        = 0x00000400, // 10 Main hand weapon required
     SPELL_ATTR3_BATTLEGROUND                     = 0x00000800, // 11 Can casted only on battleground
     SPELL_ATTR3_ONLY_TARGET_GHOSTS               = 0x00001000, // 12
-    SPELL_ATTR3_UNK13                            = 0x00002000, // 13
+	SPELL_ATTR3_UNK13                            = 0x00002000, // 13
     SPELL_ATTR3_IS_HONORLESS_TARGET              = 0x00004000, // 14 "Honorless Target" only this spells have this flag
     SPELL_ATTR3_UNK15                            = 0x00008000, // 15 Auto Shoot, Shoot, Throw,  - this is autoshot flag
     SPELL_ATTR3_CANT_TRIGGER_PROC                = 0x00010000, // 16 confirmed with many patchnotes
@@ -574,7 +584,7 @@ enum SpellAttr8
     SPELL_ATTR8_ARMOR_SPECIALIZATION             = 0x00100000, // 20
     SPELL_ATTR8_UNK21                            = 0x00200000, // 21
     SPELL_ATTR8_UNK22                            = 0x00400000, // 22
-    SPELL_ATTR8_UNK23                            = 0x00800000, // 23
+	SPELL_ATTR8_BATTLE_RESURRECTION              = 0x00800000, // 23 Used to limit the Amount of Resurrections in Boss Encounters
     SPELL_ATTR8_HEALING_SPELL                    = 0x01000000, // 24
     SPELL_ATTR8_UNK25                            = 0x02000000, // 25
     SPELL_ATTR8_RAID_MARKER                      = 0x04000000, // 26 probably spell no need learn to cast
@@ -964,7 +974,7 @@ enum SpellCastResult
     SPELL_FAILED_ALREADY_HAVE_SUMMON            = 7,
     SPELL_FAILED_ALREADY_HAVE_PET               = 8,
     SPELL_FAILED_ALREADY_OPEN                   = 9,
-    SPELL_FAILED_MORE_POWERFUL                  = 10,
+	SPELL_FAILED_MORE_POWERFUL                  = 10,
     SPELL_FAILED_AUTOTRACK_INTERRUPTED          = 11,
     SPELL_FAILED_BAD_IMPLICIT_TARGETS           = 12,
     SPELL_FAILED_BAD_TARGETS                    = 13,
@@ -1317,20 +1327,45 @@ enum StealthType
 
 enum InvisibilityType
 {
-    INVISIBILITY_GENERAL     =  0,
-    INVISIBILITY_UNK1        =  1,
-    INVISIBILITY_UNK2        =  2,
-    INVISIBILITY_TRAP        =  3,
-    INVISIBILITY_UNK4        =  4,
-    INVISIBILITY_UNK5        =  5,
-    INVISIBILITY_DRUNK       =  6,
-    INVISIBILITY_UNK7        =  7,
-    INVISIBILITY_UNK8        =  8,
-    INVISIBILITY_UNK9        =  9,
-    INVISIBILITY_UNK10       = 10,
-    INVISIBILITY_UNK11       = 11,
+	INVISIBILITY_GENERAL = 0,
+	INVISIBILITY_UNK1 = 1,
+	INVISIBILITY_UNK2 = 2,
+	INVISIBILITY_TRAP = 3,
+	QUEST_INVIS_4 = 4,
+	QUEST_INVIS_5 = 5,
+	INVISIBILITY_DRUNK = 6,
+	QUEST_INVIS_7 = 7,
+	QUEST_INVIS_8 = 8,
+	QUEST_INVIS_9 = 9,
+	QUEST_INVIS_10 = 10,
+	QUEST_INVIS_11 = 11,
+	QUEST_INVIS_12 = 12,
+	QUEST_INVIS_13 = 13,
+	QUEST_INVIS_14 = 14,
+	QUEST_INVIS_15 = 15,
+	QUEST_INVIS_16 = 16,
+	QUEST_INVIS_17 = 17,
+	QUEST_INVIS_18 = 18,
+	QUEST_INVIS_19 = 19,
+	QUEST_INVIS_20 = 20,
+	QUEST_INVIS_21 = 21,
+	QUEST_INVIS_22 = 22,
+	QUEST_INVIS_23 = 23,
+	QUEST_INVIS_24 = 24,
+	QUEST_INVIS_25 = 25,
+	QUEST_INVIS_26 = 26,
+	QUEST_INVIS_27 = 27,
+	QUEST_INVIS_28 = 28,
+	QUEST_INVIS_29 = 29,
+	QUEST_INVIS_30 = 30,
+	QUEST_INVIS_31 = 31,
+	QUEST_INVIS_32 = 32,
+	QUEST_INVIS_33 = 33,
+	QUEST_INVIS_34 = 34,
+	QUEST_INVIS_35 = 35,
+	QUEST_INVIS_36 = 36,
 
-    TOTAL_INVISIBILITY_TYPES = 12
+	TOTAL_INVISIBILITY_TYPES = 37
 };
 
 enum ServerSideVisibilityType
@@ -1469,128 +1504,129 @@ enum SpellImmunity
 // TARGET_[OBJECT_TYPE]_[REFERENCE_TYPE(skipped for caster)]_[SELECTION_TYPE(skipped for default)]_[additional specifiers(friendly, BACK_LEFT, etc.]
 enum Targets
 {
-    TARGET_UNIT_CASTER                 = 1,
-    TARGET_UNIT_NEARBY_ENEMY           = 2,
-    TARGET_UNIT_NEARBY_PARTY           = 3,
-    TARGET_UNIT_NEARBY_ALLY            = 4,
-    TARGET_UNIT_PET                    = 5,
-    TARGET_UNIT_TARGET_ENEMY           = 6,
-    TARGET_UNIT_SRC_AREA_ENTRY         = 7,
-    TARGET_UNIT_DEST_AREA_ENTRY        = 8,
-    TARGET_DEST_HOME                   = 9,
-    TARGET_UNIT_SRC_AREA_UNK_11        = 11,
-    TARGET_UNIT_SRC_AREA_ENEMY         = 15,
-    TARGET_UNIT_DEST_AREA_ENEMY        = 16,
-    TARGET_DEST_DB                     = 17,
-    TARGET_DEST_CASTER                 = 18,
-    TARGET_UNIT_CASTER_AREA_PARTY      = 20,
-    TARGET_UNIT_TARGET_ALLY            = 21,
-    TARGET_SRC_CASTER                  = 22,
-    TARGET_GAMEOBJECT_TARGET           = 23,
-    TARGET_UNIT_CONE_ENEMY_24          = 24,
-    TARGET_UNIT_TARGET_ANY             = 25,
-    TARGET_GAMEOBJECT_ITEM_TARGET      = 26,
-    TARGET_UNIT_MASTER                 = 27,
-    TARGET_DEST_DYNOBJ_ENEMY           = 28,
-    TARGET_DEST_DYNOBJ_ALLY            = 29,
-    TARGET_UNIT_SRC_AREA_ALLY          = 30,
-    TARGET_UNIT_DEST_AREA_ALLY         = 31,
-    TARGET_DEST_CASTER_SUMMON          = 32, // front left, doesn't use radius
-    TARGET_UNIT_SRC_AREA_PARTY         = 33,
-    TARGET_UNIT_DEST_AREA_PARTY        = 34,
-    TARGET_UNIT_TARGET_PARTY           = 35,
-    TARGET_DEST_CASTER_UNK_36          = 36,
-    TARGET_UNIT_LASTTARGET_AREA_PARTY  = 37,
-    TARGET_UNIT_NEARBY_ENTRY           = 38,
-    TARGET_DEST_CASTER_FISHING         = 39,
-    TARGET_GAMEOBJECT_NEARBY_ENTRY     = 40,
-    TARGET_DEST_CASTER_FRONT_RIGHT     = 41,
-    TARGET_DEST_CASTER_BACK_RIGHT      = 42,
-    TARGET_DEST_CASTER_BACK_LEFT       = 43,
-    TARGET_DEST_CASTER_FRONT_LEFT      = 44,
-    TARGET_UNIT_TARGET_CHAINHEAL_ALLY  = 45,
-    TARGET_DEST_NEARBY_ENTRY           = 46,
-    TARGET_DEST_CASTER_FRONT           = 47,
-    TARGET_DEST_CASTER_BACK            = 48,
-    TARGET_DEST_CASTER_RIGHT           = 49,
-    TARGET_DEST_CASTER_LEFT            = 50,
-    TARGET_GAMEOBJECT_SRC_AREA         = 51,
-    TARGET_GAMEOBJECT_DEST_AREA        = 52,
-    TARGET_DEST_TARGET_ENEMY           = 53,
-    TARGET_UNIT_CONE_ENEMY_54          = 54,
-    TARGET_DEST_CASTER_FRONT_LEAP      = 55, // for a leap spell
-    TARGET_UNIT_CASTER_AREA_RAID       = 56,
-    TARGET_UNIT_TARGET_RAID            = 57,
-    TARGET_UNIT_NEARBY_RAID            = 58,
-    TARGET_UNIT_CONE_ALLY              = 59,
-    TARGET_UNIT_CONE_ENTRY             = 60,
-    TARGET_UNIT_TARGET_AREA_RAID_CLASS = 61,
-    TARGET_UNK_62                      = 62,
-    TARGET_DEST_TARGET_ANY             = 63,
-    TARGET_DEST_TARGET_FRONT           = 64,
-    TARGET_DEST_TARGET_BACK            = 65,
-    TARGET_DEST_TARGET_RIGHT           = 66,
-    TARGET_DEST_TARGET_LEFT            = 67,
-    TARGET_DEST_TARGET_FRONT_RIGHT     = 68,
-    TARGET_DEST_TARGET_BACK_RIGHT      = 69,
-    TARGET_DEST_TARGET_BACK_LEFT       = 70,
-    TARGET_DEST_TARGET_FRONT_LEFT      = 71,
-    TARGET_DEST_CASTER_RANDOM          = 72,
-    TARGET_DEST_CASTER_RADIUS          = 73,
-    TARGET_DEST_TARGET_RANDOM          = 74,
-    TARGET_DEST_TARGET_RADIUS          = 75,
-    TARGET_DEST_CHANNEL_TARGET         = 76,
-    TARGET_UNIT_CHANNEL_TARGET         = 77,
-    TARGET_DEST_DEST_FRONT             = 78,
-    TARGET_DEST_DEST_BACK              = 79,
-    TARGET_DEST_DEST_RIGHT             = 80,
-    TARGET_DEST_DEST_LEFT              = 81,
-    TARGET_DEST_DEST_FRONT_RIGHT       = 82,
-    TARGET_DEST_DEST_BACK_RIGHT        = 83,
-    TARGET_DEST_DEST_BACK_LEFT         = 84,
-    TARGET_DEST_DEST_FRONT_LEFT        = 85,
-    TARGET_DEST_DEST_RANDOM            = 86,
-    TARGET_DEST_DEST                   = 87,
-    TARGET_DEST_DYNOBJ_NONE            = 88,
-    TARGET_DEST_TRAJ                   = 89,
-    TARGET_UNIT_TARGET_MINIPET         = 90,
-    TARGET_DEST_DEST_RADIUS            = 91,
-    TARGET_UNIT_SUMMONER               = 92,
-    TARGET_CORPSE_SRC_AREA_ENEMY       = 93, // NYI
-    TARGET_UNIT_VEHICLE                = 94,
-    TARGET_UNIT_TARGET_PASSENGER       = 95,
-    TARGET_UNIT_PASSENGER_0            = 96,
-    TARGET_UNIT_PASSENGER_1            = 97,
-    TARGET_UNIT_PASSENGER_2            = 98,
-    TARGET_UNIT_PASSENGER_3            = 99,
-    TARGET_UNIT_PASSENGER_4            = 100,
-    TARGET_UNIT_PASSENGER_5            = 101,
-    TARGET_UNIT_PASSENGER_6            = 102,
-    TARGET_UNIT_PASSENGER_7            = 103,
-    TARGET_UNIT_CONE_ENEMY_104         = 104,
-    TARGET_UNIT_UNK_105                = 105, // 1 spell
-    TARGET_DEST_CHANNEL_CASTER         = 106,
-    TARGET_UNK_DEST_AREA_UNK_107       = 107, // not enough info - only generic spells avalible
-    TARGET_GAMEOBJECT_CONE             = 108,
-    TARGET_DEST_UNK_110                = 110, // 1 spell
-    TARGET_UNK_111                     = 111,
-    TARGET_UNK_112                     = 112,
-    TARGET_UNK_113                     = 113,
-    TARGET_UNK_114                     = 114,
-    TARGET_UNK_115                     = 115,
-    TARGET_UNK_116                     = 116,
-    TARGET_UNK_117                     = 117,
-    TARGET_UNK_118                     = 118,
-    TARGET_UNK_119                     = 119,
-    TARGET_UNK_120                     = 120,
-    TARGET_UNK_121                     = 121,
-    TARGET_UNK_122                     = 122,
-    TARGET_UNK_123                     = 123,
-    TARGET_UNK_124                     = 124,
-    TARGET_UNK_125                     = 125,
-    TARGET_UNK_126                     = 126,
-    TARGET_UNK_127                     = 127,
-    TOTAL_SPELL_TARGETS
+	TARGET_NONE = 0,
+	TARGET_UNIT_CASTER = 1,
+	TARGET_UNIT_NEARBY_ENEMY = 2,
+	TARGET_UNIT_NEARBY_PARTY = 3,
+	TARGET_UNIT_NEARBY_ALLY = 4,
+	TARGET_UNIT_PET = 5,
+	TARGET_UNIT_TARGET_ENEMY = 6,
+	TARGET_UNIT_SRC_AREA_ENTRY = 7,
+	TARGET_UNIT_DEST_AREA_ENTRY = 8,
+	TARGET_DEST_HOME = 9,
+	TARGET_UNIT_SRC_AREA_UNK_11 = 11,
+	TARGET_UNIT_SRC_AREA_ENEMY = 15,
+	TARGET_UNIT_DEST_AREA_ENEMY = 16,
+	TARGET_DEST_DB = 17,
+	TARGET_DEST_CASTER = 18,
+	TARGET_UNIT_CASTER_AREA_PARTY = 20,
+	TARGET_UNIT_TARGET_ALLY = 21,
+	TARGET_SRC_CASTER = 22,
+	TARGET_GAMEOBJECT_TARGET = 23,
+	TARGET_UNIT_CONE_ENEMY_24 = 24,
+	TARGET_UNIT_TARGET_ANY = 25,
+	TARGET_GAMEOBJECT_ITEM_TARGET = 26,
+	TARGET_UNIT_MASTER = 27,
+	TARGET_DEST_DYNOBJ_ENEMY = 28,
+	TARGET_DEST_DYNOBJ_ALLY = 29,
+	TARGET_UNIT_SRC_AREA_ALLY = 30,
+	TARGET_UNIT_DEST_AREA_ALLY = 31,
+	TARGET_DEST_CASTER_SUMMON = 32, // front left, doesn't use radius
+	TARGET_UNIT_SRC_AREA_PARTY = 33,
+	TARGET_UNIT_DEST_AREA_PARTY = 34,
+	TARGET_UNIT_TARGET_PARTY = 35,
+	TARGET_DEST_CASTER_UNK_36 = 36,
+	TARGET_UNIT_LASTTARGET_AREA_PARTY = 37,
+	TARGET_UNIT_NEARBY_ENTRY = 38,
+	TARGET_DEST_CASTER_FISHING = 39,
+	TARGET_GAMEOBJECT_NEARBY_ENTRY = 40,
+	TARGET_DEST_CASTER_FRONT_RIGHT = 41,
+	TARGET_DEST_CASTER_BACK_RIGHT = 42,
+	TARGET_DEST_CASTER_BACK_LEFT = 43,
+	TARGET_DEST_CASTER_FRONT_LEFT = 44,
+	TARGET_UNIT_TARGET_CHAINHEAL_ALLY = 45,
+	TARGET_DEST_NEARBY_ENTRY = 46,
+	TARGET_DEST_CASTER_FRONT = 47,
+	TARGET_DEST_CASTER_BACK = 48,
+	TARGET_DEST_CASTER_RIGHT = 49,
+	TARGET_DEST_CASTER_LEFT = 50,
+	TARGET_GAMEOBJECT_SRC_AREA = 51,
+	TARGET_GAMEOBJECT_DEST_AREA = 52,
+	TARGET_DEST_TARGET_ENEMY = 53,
+	TARGET_UNIT_CONE_ENEMY_54 = 54,
+	TARGET_DEST_CASTER_FRONT_LEAP = 55, // for a leap spell
+	TARGET_UNIT_CASTER_AREA_RAID = 56,
+	TARGET_UNIT_TARGET_RAID = 57,
+	TARGET_UNIT_NEARBY_RAID = 58,
+	TARGET_UNIT_CONE_ALLY = 59,
+	TARGET_UNIT_CONE_ENTRY = 60,
+	TARGET_UNIT_TARGET_AREA_RAID_CLASS = 61,
+	TARGET_UNK_62 = 62,
+	TARGET_DEST_TARGET_ANY = 63,
+	TARGET_DEST_TARGET_FRONT = 64,
+	TARGET_DEST_TARGET_BACK = 65,
+	TARGET_DEST_TARGET_RIGHT = 66,
+	TARGET_DEST_TARGET_LEFT = 67,
+	TARGET_DEST_TARGET_FRONT_RIGHT = 68,
+	TARGET_DEST_TARGET_BACK_RIGHT = 69,
+	TARGET_DEST_TARGET_BACK_LEFT = 70,
+	TARGET_DEST_TARGET_FRONT_LEFT = 71,
+	TARGET_DEST_CASTER_RANDOM = 72,
+	TARGET_DEST_CASTER_RADIUS = 73,
+	TARGET_DEST_TARGET_RANDOM = 74,
+	TARGET_DEST_TARGET_RADIUS = 75,
+	TARGET_DEST_CHANNEL_TARGET = 76,
+	TARGET_UNIT_CHANNEL_TARGET = 77,
+	TARGET_DEST_DEST_FRONT = 78,
+	TARGET_DEST_DEST_BACK = 79,
+	TARGET_DEST_DEST_RIGHT = 80,
+	TARGET_DEST_DEST_LEFT = 81,
+	TARGET_DEST_DEST_FRONT_RIGHT = 82,
+	TARGET_DEST_DEST_BACK_RIGHT = 83,
+	TARGET_DEST_DEST_BACK_LEFT = 84,
+	TARGET_DEST_DEST_FRONT_LEFT = 85,
+	TARGET_DEST_DEST_RANDOM = 86,
+	TARGET_DEST_DEST = 87,
+	TARGET_DEST_DYNOBJ_NONE = 88,
+	TARGET_DEST_TRAJ = 89,
+	TARGET_UNIT_TARGET_MINIPET = 90,
+	TARGET_DEST_DEST_RADIUS = 91,
+	TARGET_UNIT_SUMMONER = 92,
+	TARGET_CORPSE_SRC_AREA_ENEMY = 93, // NYI
+	TARGET_UNIT_VEHICLE = 94,
+	TARGET_UNIT_TARGET_PASSENGER = 95,
+	TARGET_UNIT_PASSENGER_0 = 96,
+	TARGET_UNIT_PASSENGER_1 = 97,
+	TARGET_UNIT_PASSENGER_2 = 98,
+	TARGET_UNIT_PASSENGER_3 = 99,
+	TARGET_UNIT_PASSENGER_4 = 100,
+	TARGET_UNIT_PASSENGER_5 = 101,
+	TARGET_UNIT_PASSENGER_6 = 102,
+	TARGET_UNIT_PASSENGER_7 = 103,
+	TARGET_UNIT_CONE_ENEMY_104 = 104,
+	TARGET_UNIT_UNK_105 = 105, // 1 spell
+	TARGET_DEST_CHANNEL_CASTER = 106,
+	TARGET_UNK_DEST_AREA_UNK_107 = 107, // not enough info - only generic spells avalible
+	TARGET_GAMEOBJECT_CONE = 108,
+	TARGET_DEST_UNK_110 = 110, // 1 spell
+	TARGET_UNK_111 = 111,
+	TARGET_UNK_112 = 112,
+	TARGET_UNK_113 = 113,
+	TARGET_UNK_114 = 114,
+	TARGET_UNK_115 = 115,
+	TARGET_UNK_116 = 116,
+	TARGET_UNK_117 = 117,
+	TARGET_UNK_118 = 118,
+	TARGET_UNK_119 = 119,
+	TARGET_UNK_120 = 120,
+	TARGET_UNK_121 = 121,
+	TARGET_UNK_122 = 122,
+	TARGET_UNK_123 = 123,
+	TARGET_UNK_124 = 124,
+	TARGET_UNK_125 = 125,
+	TARGET_UNK_126 = 126,
+	TARGET_UNK_127 = 127,
+	TOTAL_SPELL_TARGETS
 };
 
 enum SpellMissInfo
@@ -1694,10 +1730,11 @@ enum GameObjectFlags
 
 enum GameObjectDynamicLowFlags
 {
-    GO_DYNFLAG_LO_ACTIVATE          = 0x01,                 // enables interaction with GO
-    GO_DYNFLAG_LO_ANIMATE           = 0x02,                 // possibly more distinct animation of GO
-    GO_DYNFLAG_LO_NO_INTERACT       = 0x04,                 // appears to disable interaction (not fully verified)
-    GO_DYNFLAG_LO_SPARKLE           = 0x08                  // makes GO sparkle
+	GO_DYNFLAG_LO_ACTIVATE    = 0x01,                 // enables interaction with GO
+	GO_DYNFLAG_LO_ANIMATE     = 0x02,                 // possibly more distinct animation of GO
+	GO_DYNFLAG_LO_NO_INTERACT = 0x04,                 // appears to disable interaction (not fully verified)
+	GO_DYNFLAG_LO_SPARKLE     = 0x08,                 // makes GO sparkle
+	GO_DYNFLAG_LO_STOPPED     = 0x10                  // Transport is stopped
 };
 
 enum GameObjectDestructibleState
@@ -2852,7 +2889,8 @@ enum LockType
     LOCKTYPE_SLOW_CLOSE            = 18,
     LOCKTYPE_FISHING               = 19,
     LOCKTYPE_INSCRIPTION           = 20,
-    LOCKTYPE_OPEN_FROM_VEHICLE     = 21
+    LOCKTYPE_OPEN_FROM_VEHICLE     = 21,
+	LOCKTYPE_ARCHAEOLOGY           = 22
 };
 
 enum TrainerType                                            // this is important type for npcs!
@@ -3311,16 +3349,17 @@ enum SkillType
 
 inline SkillType SkillByLockType(LockType locktype)
 {
-    switch (locktype)
-    {
-        case LOCKTYPE_PICKLOCK:    return SKILL_LOCKPICKING;
-        case LOCKTYPE_HERBALISM:   return SKILL_HERBALISM;
-        case LOCKTYPE_MINING:      return SKILL_MINING;
-        case LOCKTYPE_FISHING:     return SKILL_FISHING;
-        case LOCKTYPE_INSCRIPTION: return SKILL_INSCRIPTION;
-        default: break;
-    }
-    return SKILL_NONE;
+	switch (locktype)
+	{
+	case LOCKTYPE_PICKLOCK:    return SKILL_LOCKPICKING;
+	case LOCKTYPE_HERBALISM:   return SKILL_HERBALISM;
+	case LOCKTYPE_MINING:      return SKILL_MINING;
+	case LOCKTYPE_FISHING:     return SKILL_FISHING;
+	case LOCKTYPE_INSCRIPTION: return SKILL_INSCRIPTION;
+	case LOCKTYPE_ARCHAEOLOGY: return SKILL_ARCHAEOLOGY;
+	default: break;
+	}
+	return SKILL_NONE;
 }
 
 inline uint32 SkillByQuestSort(int32 QuestSort)
@@ -3426,60 +3465,72 @@ enum WeatherType
 
 enum ChatMsg
 {
-    CHAT_MSG_ADDON                  = 0xFFFFFFFF, // -1
-    CHAT_MSG_SYSTEM                 = 0x00,
-    CHAT_MSG_SAY                    = 0x01,
-    CHAT_MSG_PARTY                  = 0x02,
-    CHAT_MSG_RAID                   = 0x03,
-    CHAT_MSG_GUILD                  = 0x04,
-    CHAT_MSG_OFFICER                = 0x05,
-    CHAT_MSG_YELL                   = 0x06,
-    CHAT_MSG_WHISPER                = 0x07,
-    CHAT_MSG_WHISPER_FOREIGN        = 0x08,
-    CHAT_MSG_WHISPER_INFORM         = 0x09,
-    CHAT_MSG_EMOTE                  = 0x0A,
-    CHAT_MSG_TEXT_EMOTE             = 0x0B,
-    CHAT_MSG_MONSTER_SAY            = 0x0C,
-    CHAT_MSG_MONSTER_PARTY          = 0x0D,
-    CHAT_MSG_MONSTER_YELL           = 0x0E,
-    CHAT_MSG_MONSTER_WHISPER        = 0x0F,
-    CHAT_MSG_MONSTER_EMOTE          = 0x10,
-    CHAT_MSG_CHANNEL                = 0x11,
-    CHAT_MSG_CHANNEL_JOIN           = 0x12,
-    CHAT_MSG_CHANNEL_LEAVE          = 0x13,
-    CHAT_MSG_CHANNEL_LIST           = 0x14,
-    CHAT_MSG_CHANNEL_NOTICE         = 0x15,
-    CHAT_MSG_CHANNEL_NOTICE_USER    = 0x16,
-    // CHAT_MSG_TARGETICONS
-    CHAT_MSG_AFK                    = 0x17,
-    CHAT_MSG_DND                    = 0x18,
-    CHAT_MSG_IGNORED                = 0x19,
-    CHAT_MSG_SKILL                  = 0x1A,
-    CHAT_MSG_LOOT                   = 0x1B,
-    CHAT_MSG_MONEY                  = 0x1C,
-    CHAT_MSG_OPENING                = 0x1D,
-    CHAT_MSG_TRADESKILLS            = 0x1E,
-    CHAT_MSG_PET_INFO               = 0x1F,
-    CHAT_MSG_COMBAT_MISC_INFO       = 0x20,
-    CHAT_MSG_COMBAT_XP_GAIN         = 0x21,
-    CHAT_MSG_COMBAT_HONOR_GAIN      = 0x22,
-    CHAT_MSG_COMBAT_FACTION_CHANGE  = 0x23,
-    CHAT_MSG_BG_SYSTEM_NEUTRAL      = 0x24,
-    CHAT_MSG_BG_SYSTEM_ALLIANCE     = 0x25,
-    CHAT_MSG_BG_SYSTEM_HORDE        = 0x26,
-    CHAT_MSG_RAID_LEADER            = 0x27,
-    CHAT_MSG_RAID_WARNING           = 0x28,
-    CHAT_MSG_RAID_BOSS_EMOTE        = 0x29,
-    CHAT_MSG_RAID_BOSS_WHISPER      = 0x2A,
-    CHAT_MSG_FILTERED               = 0x2B,
-    CHAT_MSG_BATTLEGROUND           = 0x2C,
-    CHAT_MSG_BATTLEGROUND_LEADER    = 0x2D,
-    CHAT_MSG_RESTRICTED             = 0x2E,
-    CHAT_MSG_BATTLENET              = 0x2F,
-    CHAT_MSG_ACHIEVEMENT            = 0x30,
-    CHAT_MSG_GUILD_ACHIEVEMENT      = 0x31,
-    CHAT_MSG_ARENA_POINTS           = 0x32,
-    CHAT_MSG_PARTY_LEADER           = 0x33
+	CHAT_MSG_ADDON = 0xFFFFFFFF, // -1
+	CHAT_MSG_SYSTEM = 0x00,
+	CHAT_MSG_SAY = 0x01,
+	CHAT_MSG_PARTY = 0x02,
+	CHAT_MSG_RAID = 0x03,
+	CHAT_MSG_GUILD = 0x04,
+	CHAT_MSG_OFFICER = 0x05,
+	CHAT_MSG_YELL = 0x06,
+	CHAT_MSG_WHISPER = 0x07,
+	CHAT_MSG_WHISPER_FOREIGN = 0x08,
+	CHAT_MSG_WHISPER_INFORM = 0x09,
+	CHAT_MSG_EMOTE = 0x0A,
+	CHAT_MSG_TEXT_EMOTE = 0x0B,
+	CHAT_MSG_MONSTER_SAY = 0x0C,
+	CHAT_MSG_MONSTER_PARTY = 0x0D,
+	CHAT_MSG_MONSTER_YELL = 0x0E,
+	CHAT_MSG_MONSTER_WHISPER = 0x0F,
+	CHAT_MSG_MONSTER_EMOTE = 0x10,
+	CHAT_MSG_CHANNEL = 0x11,
+	CHAT_MSG_CHANNEL_JOIN = 0x12,
+	CHAT_MSG_CHANNEL_LEAVE = 0x13,
+	CHAT_MSG_CHANNEL_LIST = 0x14,
+	CHAT_MSG_CHANNEL_NOTICE = 0x15,
+	CHAT_MSG_CHANNEL_NOTICE_USER = 0x16,
+	CHAT_MSG_AFK = 0x17,
+	CHAT_MSG_DND = 0x18,
+	CHAT_MSG_IGNORED = 0x19,
+	CHAT_MSG_SKILL = 0x1A,
+	CHAT_MSG_LOOT = 0x1B,
+	CHAT_MSG_MONEY = 0x1C,
+	CHAT_MSG_OPENING = 0x1D,
+	CHAT_MSG_TRADESKILLS = 0x1E,
+	CHAT_MSG_PET_INFO = 0x1F,
+	CHAT_MSG_COMBAT_MISC_INFO = 0x20,
+	CHAT_MSG_COMBAT_XP_GAIN = 0x21,
+	CHAT_MSG_COMBAT_HONOR_GAIN = 0x22,
+	CHAT_MSG_COMBAT_FACTION_CHANGE = 0x23,
+	CHAT_MSG_BG_SYSTEM_NEUTRAL = 0x24,
+	CHAT_MSG_BG_SYSTEM_ALLIANCE = 0x25,
+	CHAT_MSG_BG_SYSTEM_HORDE = 0x26,
+	CHAT_MSG_RAID_LEADER = 0x27,
+	CHAT_MSG_RAID_WARNING = 0x28,
+	CHAT_MSG_RAID_BOSS_EMOTE = 0x29,
+	CHAT_MSG_RAID_BOSS_WHISPER = 0x2A,
+	CHAT_MSG_FILTERED = 0x2B,
+	CHAT_MSG_BATTLEGROUND = 0x2C,
+	CHAT_MSG_BATTLEGROUND_LEADER = 0x2D,
+	CHAT_MSG_RESTRICTED = 0x2E,
+	CHAT_MSG_BATTLENET = 0x2F,
+	CHAT_MSG_ACHIEVEMENT = 0x30,
+	CHAT_MSG_GUILD_ACHIEVEMENT = 0x31,
+	CHAT_MSG_ARENA_POINTS = 0x32,
+	CHAT_MSG_PARTY_LEADER = 0x33,
+	CHAT_MSG_TARGETICONS = 0x34,
+	CHAT_MSG_BN_WHISPER = 0x35,
+	CHAT_MSG_BN_WHISPER_INFORM = 0x36,
+	CHAT_MSG_BN_CONVERSATION = 0x37,
+	CHAT_MSG_BN_CONVERSATION_NOTICE = 0x38,
+	CHAT_MSG_BN_CONVERSATION_LIST = 0x39,
+	CHAT_MSG_BN_INLINE_TOAST_ALERT = 0x3A,
+	CHAT_MSG_BN_INLINE_TOAST_BROADCAST = 0x3B,
+	CHAT_MSG_BN_INLINE_TOAST_BROADCAST_INFORM = 0x3C,
+	CHAT_MSG_BN_INLINE_TOAST_CONVERSATION = 0x3D,
+	CHAT_MSG_BN_WHISPER_PLAYER_OFFLINE = 0x3E,
+	CHAT_MSG_COMBAT_GUILD_XP_GAIN = 0x3F,
+	CHAT_MSG_CURRENCY = 0x40
 };
 
 #define MAX_CHAT_MSG_TYPE 0x34
@@ -3593,8 +3644,13 @@ enum SummonType
 
 enum EventId
 {
-    EVENT_CHARGE            = 1003,
-    EVENT_JUMP              = 1004
+	EVENT_CHARGE = 1003,
+	EVENT_JUMP = 1004,
+
+	/// Special charge event which is used for charge spells that have explicit targets
+	/// and had a path already generated - using it in PointMovementGenerator will not
+	/// create a new spline and launch it
+	EVENT_CHARGE_PREPATH = 1005
 };
 
 enum ResponseCodes
