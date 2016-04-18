@@ -24,5 +24,24 @@ UPDATE `quest_template` SET `RequiredNpcOrGo1` = 2374 WHERE `Id` = 28146;
 
 UPDATE `quest_template` SET `SpecialFlags` = 0 WHERE `Id` = 28192;
 
+-- No One Here Gets Out Alive auto.
+UPDATE `quest_template` SET `Method`=0 WHERE (`Id`=28192); 
+UPDATE `quest_template` SET `MinLevel`=20, `RequiredRaces`=0  WHERE (`Id`=28169);
+
+DELETE FROM `spell_scripts` WHERE (`datalong`=48752); 
+
+DELETE FROM `spell_linked_spell` WHERE (`spell_trigger`=90976);
+INSERT INTO `spell_linked_spell` (`spell_trigger`, `spell_effect`, `comment`) VALUES (90976, 85933, 'prova');
+
+INSERT INTO `spell_scripts` (`id`, `command`, `datalong`) VALUES (85933, 8, 48752);
+UPDATE `quest_template` SET `SourceItemId`=644450 WHERE (`Id`=28538);
+UPDATE `quest_template` SET `SourceItemId`=644450, `RequiredSourceItemId4`=644450 WHERE (`Id`=28538);
+-- The Heart of the Matter
+DELETE FROM `creature_loot_template` WHERE `entry`=48628 AND item=64380;
+DELETE FROM `creature_loot_template` WHERE `entry`=2248 AND item=64380;
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (2248, 64380, -100);
+INSERT INTO `creature_loot_template` (`entry`, `item`, `ChanceOrQuestChance`) VALUES (48628, 64380, -100);
+UPDATE `creature_template` SET `lootid`=2248 WHERE (`entry`=2248);
+UPDATE `creature_template` SET `lootid`=48628 WHERE (`entry`=48628);
 
 
