@@ -694,13 +694,24 @@ void WorldSession::HandleAddonMessagechatOpcode(WorldPacket& recvData)
 
 void WorldSession::HandleEmoteOpcode(WorldPacket& recvData)
 {
-    if (!GetPlayer()->isAlive() || GetPlayer()->HasUnitState(UNIT_STATE_DIED))
-        return;
+	if (!GetPlayer()->isAlive() || GetPlayer()->HasUnitState(UNIT_STATE_DIED))
+		return;
 
-    uint32 emote;
-    recvData >> emote;
-    sScriptMgr->OnPlayerEmote(GetPlayer(), emote);
-    GetPlayer()->HandleEmoteCommand(emote);
+	if (!GetPlayer()->CanSpeak())
+	{
+		std::string timeStr = secsToTimeString(m_muteTime - time(NULL));
+		SendNotification(GetTrinityString(LANG_WAIT_BEFORE_SPEAKING), timeStr.c_str());
+		recvData.rfinish(); // Prevent warnings
+		return;
+	}
+
+	GetPlayer()->UpdateSpeakTime();
+
+	uint32 emote;
+	recvData >> emote;
+
+	sScriptMgr->OnPlayerEmote(GetPlayer(), emote);
+	GetPlayer()->HandleEmote(emote);
 }
 
 namespace Trinity

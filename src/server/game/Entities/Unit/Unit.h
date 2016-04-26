@@ -1503,6 +1503,10 @@ class Unit : public WorldObject
         void HandleEmoteCommand(uint32 anim_id);
         void HandleEmote(uint32 emote_id);
         void HandleEmoteState(uint32 emote_id);
+		uint32 GetEmoteState() { return GetUInt32Value(UNIT_NPC_EMOTESTATE); }
+		void SetStoredEmoteState(uint32 emoteState) { m_oldEmoteState = emoteState; }
+		uint32 GetStoredEmoteState() { return m_oldEmoteState; }
+		void ClearEmotes();
         void AttackerStateUpdate (Unit* victim, WeaponAttackType attType = BASE_ATTACK, bool extra = false);
 
         void CalculateMeleeDamage(Unit* victim, uint32 damage, CalcDamageInfo* damageInfo, WeaponAttackType attackType = BASE_ATTACK);
@@ -2437,6 +2441,8 @@ class Unit : public WorldObject
         bool IsAlwaysDetectableFor(WorldObject const* seer) const;
 
         void DisableSpline();
+
+		uint32 m_oldEmoteState; // Used to store and restore old emote states for creatures.
 
         PhaseDefinitionStore const* _PhaseDefinitionStore;
         std::list<uint32> m_soulSwapDotsList;
