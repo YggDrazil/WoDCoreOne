@@ -1,14 +1,10 @@
--=TER-Server крови=-
+-=TER-Server Core=-
 
 TER-Server_S_v.6.47833.rar
-Скомпилированное ядро и БД, а также патчи для сборки сервера, https://yadi.sk/d/n2GizQbek4V7r
+
+https://yadi.sk/d/n2GizQbek4V7r
 Установка:
-1-распаковать ядро (Core_х64)
-2-запустить денвер, вертриго, хамачи или то чем вы пользуетесь и залить БД
-3-извлечь карты экстрактами и закинуть в ядро в папку Data
-4-извлечь патч на сервер *папка Server_dbc* и заменить dbc сервера
-5-извлечь патч на клиент *папка Client* и заменить файлы игры
-6-настроить пароь к БД в TER-Server-A.conf, TER-Server-W.conf 
-7-запустить сервер TER-Server-A.exe и TER-Server-W.exe
-8-создать аккаунт в консоле TER-Server-W.exe (account create *логин* *пароль*)
-9-запустить игру Start Client.bat и играть
+
+(Core_х64)
+
+Der Code stammt von einem Russischen Projekt und kann daher Kyrillische Zeichen enthalten welche gegen Latainische ausgetauscht werden müssen.
